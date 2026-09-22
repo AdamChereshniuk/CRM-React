@@ -36,20 +36,20 @@ function App() {
           {isAuthenticated && user ? (
             <>
               <Routes>
-                <Route path="/" element={<HomePage userName={userName} />} />
-                <Route path="/orders" element={<OrdersPage userId={user.id} />} />
-                <Route path="/clients" element={<ClientsPage />} />
-                <Route path="/clients/:id" element={<ClientPage />} />
-                <Route path="/help" element={<HelpPage />} />
-                <Route path="/feedback" element={<FeedbackPage />} />
+                <Route path="/CRM-React" element={<HomePage userName={userName} />} />
+                <Route path="/CRM-React/orders" element={<OrdersPage userId={user.id} />} />
+                <Route path="/CRM-React/clients" element={<ClientsPage />} />
+                <Route path="/CRM-React/clients/:id" element={<ClientPage />} />
+                <Route path="/CRM-React/help" element={<HelpPage />} />
+                <Route path="/CRM-React/feedback" element={<FeedbackPage />} />
               </Routes>
             </>
           ) : (
             <>
               <Routes>
-                <Route path="/register" element={<RegisterPage />} />
-                <Route path="/login" element={<LoginPage />} />
-                <Route path="/" element={
+                <Route path="/CRM-React/register" element={<RegisterPage />} />
+                <Route path="/CRM-React/login" element={<LoginPage />} />
+                <Route path="/CRM-React/" element={
                   <div className="wrapper">
                     <div className="login-wrapper">
                       <h1 className="login-wrapper__title">Войдите или зарегистрируйтесь, чтобы пользоваться сервисом</h1>
