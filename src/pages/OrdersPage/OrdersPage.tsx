@@ -13,7 +13,6 @@ type TActiveCreateOrderFormNumber = 1 | 2 | 3 | 4 | null;
 export const OrdersPage = ({ userId }: { userId: string }) => {
     const [activeCreateOrderFormNumber, setActiveCreateOrderFormNumber] = useState<TActiveCreateOrderFormNumber>(null);
     const [orders, setOrders] = useState<Order[] | null>(null);
-    const [customerById, setCustomerById] = useState<Customer | null>(null);
     const [customersById, setCustomersById] = useState<[number, Customer][]>([[
         0, {
             id: 0,
@@ -73,14 +72,6 @@ export const OrdersPage = ({ userId }: { userId: string }) => {
                             <span className="orders-page__item-title orders-page__item-title-1">Получено</span>
                             {orders?.filter(order => order.status == "gotten").length !== 0 && <div className="orders-page__item-cards">
                                 {orders?.filter(order => order.status == "gotten").map((order) => {
-                                    // const getOrderCustomer = async() => {
-                                    //     await getCustomers().then(data => {
-                                    //         if(data.filter(client => Number(client.id) == Number(order.customer_id)).length !== 0) {
-                                    //             setCustomerById(data.filter(client => Number(client.id) == Number(order.customer_id))[0]);
-                                    //         };
-                                    //     });
-                                    // };
-
                                     return (
                                         <>
                                             <div className="orders-page__item-card" onClick={() => setOrderIdForDetailsModal(order.id)}>
@@ -102,16 +93,6 @@ export const OrdersPage = ({ userId }: { userId: string }) => {
                             <span className="orders-page__item-title orders-page__item-title-2">В работе</span>
                             {orders?.filter(order => order.status == "process").length !== 0 && <div className="orders-page__item-cards">
                                 {orders?.filter(order => order.status == "process").map((order) => {
-                                    const getOrderCustomer = async() => {
-                                        await getCustomers().then(data => {
-                                            if(data.filter(client => Number(client.id) == Number(order.customer_id)).length !== 0) {
-                                                // customerById = data.filter(client => Number(client.id) == Number(order.customer_id))[0];
-                                                setCustomerById(data.filter(client => Number(client.id) == Number(order.customer_id))[0]);
-                                            };
-                                        });
-                                    };
-                                    getOrderCustomer();
-
                                     return (
                                         <>
                                             <div className="orders-page__item-card" onClick={() => setOrderIdForDetailsModal(order.id)}>
@@ -133,15 +114,6 @@ export const OrdersPage = ({ userId }: { userId: string }) => {
                             <span className="orders-page__item-title orders-page__item-title-3">Проблема</span>
                             {orders?.filter(order => order.status == "problem").length !== 0 && <div className="orders-page__item-cards">
                                 {orders?.filter(order => order.status == "problem").map((order) => {
-                                    const getOrderCustomer = async() => {
-                                        await getCustomers().then(data => {
-                                            if(data.filter(client => Number(client.id) == Number(order.customer_id)).length !== 0) {
-                                                setCustomerById(data.filter(client => Number(client.id) == Number(order.customer_id))[0]);
-                                            };
-                                        });
-                                    };
-                                    getOrderCustomer();
-
                                     return (
                                         <>
                                             <div className="orders-page__item-card" onClick={() => setOrderIdForDetailsModal(order.id)}>
@@ -163,16 +135,6 @@ export const OrdersPage = ({ userId }: { userId: string }) => {
                             <span className="orders-page__item-title orders-page__item-title-4">Готово</span>
                             {orders?.filter(order => order.status == "ready").length !== 0 && <div className="orders-page__item-cards">
                                 {orders?.filter(order => order.status == "ready").map((order) => {
-                                    const getOrderCustomer = async() => {
-                                        await getCustomers().then(data => {
-                                            if(data.filter(client => Number(client.id) == Number(order.customer_id)).length !== 0) {
-                                                // customerById = data.filter(client => Number(client.id) == Number(order.customer_id))[0];
-                                                setCustomerById(data.filter(client => Number(client.id) == Number(order.customer_id))[0]);
-                                            };
-                                        });
-                                    };
-                                    getOrderCustomer();
-
                                     return (
                                         <>
                                             <div className="orders-page__item-card" onClick={() => setOrderIdForDetailsModal(order.id)}>
