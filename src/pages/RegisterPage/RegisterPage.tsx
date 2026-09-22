@@ -28,7 +28,7 @@ export function RegisterPage() {
             name: name,
         });
 
-        window.location.href = "/login";
+        window.location.href = "/CRM-React/login";
     };
 
     return (
@@ -74,7 +74,7 @@ export function RegisterPage() {
 
                     <div className="btns">
                         <button className="register__btn btn" type="submit" disabled={!isValid}>Зарегистрироваться</button>
-                        <Link className="register__btn btn" to="/login">Войти</Link>
+                        <Link className="register__btn btn" to="/CRM-React/login">Войти</Link>
                     </div>
                 </form>
             </div>

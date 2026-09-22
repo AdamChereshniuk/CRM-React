@@ -39,10 +39,10 @@ export const ClientsPage = () => {
                             {clients.map((client, index) => {
                                 return (
                                     <div className="clients-page-table__main-row">
-                                        <div className="clients-page-table__main-cell clients-page-table__main-cell-1" onClick={() => navigate(`/clients/${client.id}`)}>
+                                        <div className="clients-page-table__main-cell clients-page-table__main-cell-1" onClick={() => navigate(`/CRM-React/clients/${client.id}`)}>
                                             <img src={client.avatar_url !== null && client.avatar_url !== "" ? client.avatar_url : client_icon} alt={client.title} />
                                         </div>
-                                        <div className="clients-page-table__main-cell clients-page-table__main-cell-2" onClick={() => navigate(`/clients/${client.id}`)}>
+                                        <div className="clients-page-table__main-cell clients-page-table__main-cell-2" onClick={() => navigate(`/CRM-React/clients/${client.id}`)}>
                                             <span>{client.title}</span>
                                         </div>
                                         <div className="clients-page-table__main-cell clients-page-table__main-cell-3">
@@ -69,7 +69,7 @@ export const ClientsPage = () => {
                     ) : (
                         <div className="clients-page-table__empty">
                             <span className="clients-page-table__empty-title">Пока у вас нет клиентов</span>
-                            <Link className="clients-page-table__empty-link btn" to="/orders">Создать заказ</Link>
+                            <Link className="clients-page-table__empty-link btn" to="/CRM-React/orders">Создать заказ</Link>
                         </div>
                     )}
                 </div>

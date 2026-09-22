@@ -30,7 +30,7 @@ export const LoginPage = () => {
         };
 
         setError("");
-        window.location.href = "/";
+        window.location.href = "/CRM-React/";
     };
 
     return (
@@ -63,7 +63,7 @@ export const LoginPage = () => {
 
                     <div className="btns">
                         <button className="register__btn btn" type="submit" disabled={!isValid}>Войти</button>
-                        <Link className="register__btn btn" to="/register">Регистрация</Link>
+                        <Link className="register__btn btn" to="/CRM-React/register">Регистрация</Link>
                     </div>
                 </form>
             </div>

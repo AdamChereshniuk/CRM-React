@@ -26,7 +26,7 @@ export const ClientPage = () => {
                 title: name,
                 email: email,
                 come_from: comeFrom,
-            }).then(() => window.location.href = "/clients");
+            }).then(() => window.location.href = "/CRM-React/clients");
         } catch (err) {
             setError(err instanceof Error ? err.message : "Ошибка");
         };

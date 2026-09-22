@@ -54,8 +54,8 @@ function App() {
                     <div className="login-wrapper">
                       <h1 className="login-wrapper__title">Войдите или зарегистрируйтесь, чтобы пользоваться сервисом</h1>
                       <div className="login-wrapper__btns">
-                        <Link className="login-wrapper__login-btn btn" to="/login">Войти</Link>
-                        <Link className="login-wrapper__register-btn btn" to="/register">Зарегистрироваться</Link>
+                        <Link className="login-wrapper__login-btn btn" to="/CRM-React/login">Войти</Link>
+                        <Link className="login-wrapper__register-btn btn" to="/CRM-React/register">Зарегистрироваться</Link>
                       </div>
                     </div>
                   </div>

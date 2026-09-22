@@ -11,7 +11,7 @@ export function HomePage({ userName }: { userName: string }) {
                 <div className="home-page-wrapper">
                     <h1 className="home-page-wrapper__title title">Здравствуйте, {userName}!</h1>
                     <p className="home-page-wrapper__text">Сегодня отличный день, чтобы продолжить работу над текущими заказами или взять новый проект.</p>
-                    <Link className="btn" to="orders">Перейти к заказам</Link>
+                    <Link className="btn" to="/CRM-React/orders">Перейти к заказам</Link>
                 </div>
             </div>
         </div>
