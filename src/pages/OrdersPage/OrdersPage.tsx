@@ -37,17 +37,7 @@ export const OrdersPage = ({ userId }: { userId: string }) => {
     useEffect(() => {
         getOrders().then(data => {
             setOrders(data);
-            let arr: [number, Customer][] = [[
-                0, {
-                    id: 0,
-                    avatar_url: null,
-                    title: "",
-                    email: "",
-                    come_from: null,
-                    user_id: "",
-                    created_at: "",
-                }
-            ]];
+            let arr: [number, Customer][] = [];
             for (const order of data) {
                 getCustomers().then(data2 => {
                     arr.push([order.id, data2.filter(cus => cus.id == order.customer_id)[0]]);
