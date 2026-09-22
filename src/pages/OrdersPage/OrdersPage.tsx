@@ -40,7 +40,7 @@ export const OrdersPage = ({ userId }: { userId: string }) => {
             let arr: [number, Customer][] = [];
             for (const order of data) {
                 getCustomers().then(data2 => {
-                    arr.push([order.id, data2.filter(cus => cus.id == order.customer_id)[0]]);
+                    arr.push([order.id, data2.filter(cus => String(cus.id) == String(order.customer_id))[0]]);
                 });
             };
             setCustomersById(arr);
