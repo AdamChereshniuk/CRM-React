@@ -1,0 +1,11 @@
+.add-order-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    
+    &__input, &__btn {
+        width: 100%;
+    }
+}

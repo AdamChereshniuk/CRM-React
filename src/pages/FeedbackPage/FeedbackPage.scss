@@ -1,0 +1,90 @@
+.feedback-page {
+    display: flex;
+    width: 100%;
+
+    &__box {
+        padding: 40px;
+        width: 100%;
+    }
+
+    &__title {
+        margin-bottom: 40px;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        width: 100%;
+        margin-bottom: 40px;
+    }
+
+    &__stars {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    &__star {
+        cursor: pointer;
+    }
+
+    &__textarea {
+        border: 1px solid #fff;
+        border-radius: 20px;
+        width: 100%;
+        max-width: 700px;
+        height: 100%;
+        min-height: 200px;
+        max-height: 500px;
+        padding: 16px;
+    }
+
+    &__btn {
+        width: fit-content;
+    }
+
+    &__reviews {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+
+        &-title {
+            display: block;
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+    }
+
+    &__review {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        padding: 20px;
+        background-color: #202937;
+        border-radius: 10px;
+
+        & > div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+
+            & > ul {
+                display: flex;
+                align-items: center;
+                gap: 4px;
+            }
+
+            & > span:last-child {
+                font-size: 18px;
+                font-weight: 600;
+            }
+        }
+
+        & > button {
+            width: fit-content;
+        }
+    }
+}

@@ -1,0 +1,30 @@
+.client-page {
+    display: flex;
+    width: 100%;
+
+    &__box {
+        width: 100%;
+        padding: 40px;
+    }
+
+    &__title {
+        margin-bottom: 40px;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        width: 100%;
+        
+        &-inputs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        &-btn {
+            width: fit-content;
+        }
+    }
+}
