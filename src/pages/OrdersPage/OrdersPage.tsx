@@ -37,13 +37,17 @@ export const OrdersPage = ({ userId }: { userId: string }) => {
     useEffect(() => {
         getOrders().then(data => {
             setOrders(data);
-            let arr: [number, Customer][] = [];
-            for (const order of data) {
-                getCustomers().then(data2 => {
-                    arr.push([order.id, data2.filter(cus => String(cus.id) == String(order.customer_id))[0]]);
-                });
+            const func = async() => {
+                let arr: [number, Customer][] = [];
+                for (const order of data) {
+                    await getCustomers().then(data2 => {
+                        arr.push([order.id, data2.filter(cus => String(cus.id) == String(order.customer_id))[0]]);
+                    });
+                };
+                console.log(arr);
+                setCustomersById(arr);
             };
-            setCustomersById(arr);
+            func();
         });
     }, []);
 
