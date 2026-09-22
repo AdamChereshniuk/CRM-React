@@ -117,7 +117,7 @@ export const OrdersPage = ({ userId }: { userId: string }) => {
                                             <div className="orders-page__item-card" onClick={() => setOrderIdForDetailsModal(order.id)}>
                                                 <span className="orders-page__item-card-title">{order.title}</span>
                                                 <span className="orders-page__item-card-price">{order.price_in_rubs} ₽</span>
-                                                <span className="orders-page__item-card-company">{customerById?.title}</span>
+                                                <span className="orders-page__item-card-company">{customersById.length > 1 && customersById.filter(obj => obj[0] == order.id)[0][1].title}</span>
                                                 <span className="orders-page__item-card-date">{new Date(order.created_at).toLocaleDateString('ru-RU')}</span>
                                             </div>
                                         </>
@@ -147,7 +147,7 @@ export const OrdersPage = ({ userId }: { userId: string }) => {
                                             <div className="orders-page__item-card" onClick={() => setOrderIdForDetailsModal(order.id)}>
                                                 <span className="orders-page__item-card-title">{order.title}</span>
                                                 <span className="orders-page__item-card-price">{order.price_in_rubs} ₽</span>
-                                                <span className="orders-page__item-card-company">{customerById?.title}</span>
+                                                <span className="orders-page__item-card-company">{customersById.length > 1 && customersById.filter(obj => obj[0] == order.id)[0][1].title}</span>
                                                 <span className="orders-page__item-card-date">{new Date(order.created_at).toLocaleDateString('ru-RU')}</span>
                                             </div>
                                         </>
@@ -178,7 +178,7 @@ export const OrdersPage = ({ userId }: { userId: string }) => {
                                             <div className="orders-page__item-card" onClick={() => setOrderIdForDetailsModal(order.id)}>
                                                 <span className="orders-page__item-card-title">{order.title}</span>
                                                 <span className="orders-page__item-card-price">{order.price_in_rubs} ₽</span>
-                                                <span className="orders-page__item-card-company">{customerById?.title}</span>
+                                                <span className="orders-page__item-card-company">{customersById.length > 1 && customersById.filter(obj => obj[0] == order.id)[0][1].title}</span>
                                                 <span className="orders-page__item-card-date">{new Date(order.created_at).toLocaleDateString('ru-RU')}</span>
                                             </div>
                                         </>
