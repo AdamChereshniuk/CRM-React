@@ -28,7 +28,7 @@ export function RegisterPage() {
             name: name,
         });
 
-        window.location.href = "/CRM-React/login";
+        window.location.href = "/CRM-React/";
     };
 
     return (

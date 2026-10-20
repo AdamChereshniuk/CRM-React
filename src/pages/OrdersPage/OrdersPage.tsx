@@ -44,12 +44,12 @@ export const OrdersPage = ({ userId }: { userId: string }) => {
                         arr.push([order.id, data2.filter(cus => String(cus.id) == String(order.customer_id))[0]]);
                     });
                 };
-                console.log(arr);
                 setCustomersById(arr);
             };
             func();
         });
     }, []);
+    useEffect(() => console.log(customersById), [customersById]);
 
     return (
         <>
@@ -71,7 +71,9 @@ export const OrdersPage = ({ userId }: { userId: string }) => {
                                             <div className="orders-page__item-card" onClick={() => setOrderIdForDetailsModal(order.id)}>
                                                 <span className="orders-page__item-card-title">{order.title}</span>
                                                 <span className="orders-page__item-card-price">{order.price_in_rubs} ₽</span>
-                                                <span className="orders-page__item-card-company">{customersById.length > 1 && customersById.filter(obj => String(obj[0]) == String(order.id))[0][1].title}</span>
+                                                <span className="orders-page__item-card-company">{customersById.filter(obj => String(obj[0]) == String(order.id)).length > 0 && (
+                                                    <span>{customersById.filter(obj => String(obj[0]) == String(order.id))[0][1].title}</span>
+                                                )}</span>
                                                 <span className="orders-page__item-card-date">{new Date(order.created_at).toLocaleDateString('ru-RU')}</span>
                                             </div>
                                         </>
@@ -92,7 +94,9 @@ export const OrdersPage = ({ userId }: { userId: string }) => {
                                             <div className="orders-page__item-card" onClick={() => setOrderIdForDetailsModal(order.id)}>
                                                 <span className="orders-page__item-card-title">{order.title}</span>
                                                 <span className="orders-page__item-card-price">{order.price_in_rubs} ₽</span>
-                                                <span className="orders-page__item-card-company">{customersById.length > 1 && customersById.filter(obj => obj[0] == order.id)[0] !== undefined && customersById.filter(obj => obj[0] == order.id)[0][1].title}</span>
+                                                <span className="orders-page__item-card-company">{customersById.filter(obj => String(obj[0]) == String(order.id)).length > 0 && (
+                                                    <span>{customersById.filter(obj => String(obj[0]) == String(order.id))[0][1].title}</span>
+                                                )}</span>
                                                 <span className="orders-page__item-card-date">{new Date(order.created_at).toLocaleDateString('ru-RU')}</span>
                                             </div>
                                         </>
@@ -113,7 +117,9 @@ export const OrdersPage = ({ userId }: { userId: string }) => {
                                             <div className="orders-page__item-card" onClick={() => setOrderIdForDetailsModal(order.id)}>
                                                 <span className="orders-page__item-card-title">{order.title}</span>
                                                 <span className="orders-page__item-card-price">{order.price_in_rubs} ₽</span>
-                                                <span className="orders-page__item-card-company">{customersById.length > 1 && customersById.filter(obj => obj[0] == order.id)[0] !== undefined && customersById.filter(obj => obj[0] == order.id)[0][1].title}</span>
+                                                <span className="orders-page__item-card-company">{customersById.filter(obj => String(obj[0]) == String(order.id)).length > 0 && (
+                                                    <span>{customersById.filter(obj => String(obj[0]) == String(order.id))[0][1].title}</span>
+                                                )}</span>
                                                 <span className="orders-page__item-card-date">{new Date(order.created_at).toLocaleDateString('ru-RU')}</span>
                                             </div>
                                         </>
@@ -134,7 +140,9 @@ export const OrdersPage = ({ userId }: { userId: string }) => {
                                             <div className="orders-page__item-card" onClick={() => setOrderIdForDetailsModal(order.id)}>
                                                 <span className="orders-page__item-card-title">{order.title}</span>
                                                 <span className="orders-page__item-card-price">{order.price_in_rubs} ₽</span>
-                                                <span className="orders-page__item-card-company">{customersById.length > 1 && customersById.filter(obj => obj[0] == order.id)[0] !== undefined && customersById.filter(obj => obj[0] == order.id)[0][1].title}</span>
+                                                <span className="orders-page__item-card-company">{customersById.filter(obj => (obj[1].id) == (order.customer_id)).length > 0 && (
+                                                    <span>{customersById.filter(obj => String(obj[1].id) == String(order.customer_id))[0][1].title}</span>
+                                                )}</span>
                                                 <span className="orders-page__item-card-date">{new Date(order.created_at).toLocaleDateString('ru-RU')}</span>
                                             </div>
                                         </>

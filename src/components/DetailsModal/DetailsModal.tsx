@@ -47,22 +47,22 @@ export const DetailsModal = ({ orderId, userId }: { orderId: number, userId: str
 
             const existing = customers.find((c) => c.title === customer);
 
-            let customerId: number;
+            let customerId: number = 0;
 
             if (existing) {
                 customerId = existing.id;
             } else {
-                const newCustomer = await addCustomer({
+                await addCustomer({
                     avatar_url: "https://avatars.mds.yandex.net/i?id=b0ebc5b80a33c61a671d5cbc398c372a81dd9370-4440211-images-thumbs&n=13",
                     title: customer,
                     email: email,
                     come_from: null,
                     user_id: user.id,
+                }).then(data => {
+                    console.log(data.id);
+                    customerId = data.id;
                 });
-                customerId = newCustomer.id;
             };
-
-            console.log("4. customerId:", customerId);
 
             // 5. Обновляем заказ
             const updated = await updateOrder(orderId, {
@@ -101,7 +101,6 @@ export const DetailsModal = ({ orderId, userId }: { orderId: number, userId: str
         setOrderStatus(order?.status || null);
         setOrderCustomerInputValue(customer?.title || "");
     }, [customer]);
-    useEffect(() => console.log(comments), [comments]);
 
     const setOrderStatusFunc = (status: OrderStatus) => {
         setOrderStatus(status);
@@ -161,14 +160,14 @@ export const DetailsModal = ({ orderId, userId }: { orderId: number, userId: str
                     <div className="right-sidebar__select">
                         <span className="right-sidebar__select-title" onClick={() => setIsOrderStatusModalOpen(!isOrderStatusModalOpen)}>
                             {orderStatus == "gotten" && "Получено"}
-                            {orderStatus == "process" && "В процессе"}
+                            {orderStatus == "process" && "В работе"}
                             {orderStatus == "problem" && "Проблема"}
                             {orderStatus == "ready" && "Готово"}
                         </span>
                         {isOrderStatusModalOpen && (
                             <div className="right-sidebar__select-modal">
                                 <div className="right-sidebar__select-option" onClick={() => setOrderStatusFunc("gotten")}>Получено</div>
-                                <div className="right-sidebar__select-option" onClick={() => setOrderStatusFunc("process")}>В процессе</div>
+                                <div className="right-sidebar__select-option" onClick={() => setOrderStatusFunc("process")}>В работе</div>
                                 <div className="right-sidebar__select-option" onClick={() => setOrderStatusFunc("problem")}>Проблема</div>
                                 <div className="right-sidebar__select-option" onClick={() => setOrderStatusFunc("ready")}>Готово</div>
                             </div>
